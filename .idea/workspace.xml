@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="900c8441-7511-4cb8-bcdc-864e4785c1bb" name="Changes" comment="Initialize project and create Main package">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/GameWindow.java" afterDir="false" />
+    <list default="true" id="900c8441-7511-4cb8-bcdc-864e4785c1bb" name="Changes" comment="Create GamePanel and GameWindow">
+      <change afterPath="$PROJECT_DIR$/src/inputs/KeyboardInputs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/inputs/MouseInputs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +81,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1664914213979</updated>
-      <workItem from="1664914215281" duration="3333000" />
+      <workItem from="1664914215281" duration="4947000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize project and create Main package">
       <created>1664914428274</created>
@@ -90,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664914428275</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Create GamePanel and GameWindow">
+      <created>1664917589914</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664917589914</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,7 +116,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initialize project and create Main package" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initialize project and create Main package" />
+    <MESSAGE value="Create GamePanel and GameWindow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create GamePanel and GameWindow" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
