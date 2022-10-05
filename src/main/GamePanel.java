@@ -7,16 +7,13 @@ import inputs.MouseInputs;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class GamePanel extends JPanel {
     private MouseInputs mouseInputs;
-    private float xDelta = 100;
-    private float yDelta = 100;
-    private float xDir = .8f;
-    private float yDir = .8f;
-    private Color color;
     private Random random = new Random();
+    private ArrayList<Rectangle> rectangles = new ArrayList<>();
 
     public GamePanel() {
         mouseInputs = new MouseInputs(this);
@@ -26,48 +23,60 @@ public class GamePanel extends JPanel {
         addMouseMotionListener(mouseInputs);
     }
 
-    public void changeXDelta(int value) {
-        this.xDelta += value;
-    }
-
-    public void changeYDelta(int value) {
-        this.yDelta += value;
-    }
-
-    public void setRectPosition(int x, int y) {
-        this.xDelta = x;
-        this.yDelta = y;
+    public void createRectangle(int x, int y) {
+        rectangles.add(new Rectangle(x, y));
     }
 
     @Override
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
 
-        updateRectangle();
-        graphics.setColor(color);
-        graphics.fillRect((int) xDelta, (int) yDelta, 200, 50);
+        for (Rectangle rectangle : rectangles) {
+            rectangle.updateRect();
+            rectangle.draw(graphics);
+        }
     }
 
-    private void updateRectangle() {
-        if (xDelta + 200 >= 400 || xDelta <= 0) {
-            xDir *= -1;
+    public class Rectangle {
+        private int x, y, width, height;
+        private int xDir = 1, yDir = 1;
+        private Color color;
+
+        public Rectangle(int x, int y) {
+            this.x = x;
+            this.y = y;
+
+            width = random.nextInt(50);
+            height = width;
             color = getRandomColor();
         }
 
-        if (yDelta + 50 >= 400 || yDelta <= 0) {
-            yDir *= -1;
-            color = getRandomColor();
+        public void updateRect() {
+            x += xDir;
+            y += yDir;
+
+            if ((x + width) > 400 || x < 0) {
+                xDir *= -1;
+                color = getRandomColor();
+            }
+
+            if ((y + height) > 400 || y < 0) {
+                yDir *= -1;
+                color = getRandomColor();
+            }
         }
 
-        xDelta += xDir;
-        yDelta += yDir;
-    }
+        public void draw(Graphics graphics) {
+            graphics.setColor(color);
+            graphics.fillRect(x, y, width, height);
+        }
 
-    private Color getRandomColor() {
-        int r = random.nextInt(255);
-        int g = random.nextInt(255);
-        int b = random.nextInt(255);
+        private Color getRandomColor() {
+            int r = random.nextInt(255);
+            int g = random.nextInt(255);
+            int b = random.nextInt(255);
 
-        return new Color(r, b, g);
+            return new Color(r, b, g);
+        }
     }
 }
