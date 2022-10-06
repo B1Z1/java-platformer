@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="900c8441-7511-4cb8-bcdc-864e4785c1bb" name="Changes" comment="Add resource and create idle animation for main character">
+    <list default="true" id="900c8441-7511-4cb8-bcdc-864e4785c1bb" name="Changes" comment="Some refactor">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/direction/Direction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/player/PlayerAnimation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/player/PlayerAnimationType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputs/KeyboardInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/KeyboardInputs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputs/MouseInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/MouseInputs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -86,7 +94,7 @@
       <updated>1664914213979</updated>
       <workItem from="1664914215281" duration="5034000" />
       <workItem from="1664996966479" duration="2320000" />
-      <workItem from="1665088259590" duration="1061000" />
+      <workItem from="1665088259590" duration="4268000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize project and create Main package">
       <created>1664914428274</created>
@@ -116,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665004108728</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Some refactor">
+      <created>1665089587948</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665089587948</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,7 +153,8 @@
     <MESSAGE value="Create GamePanel and GameWindow" />
     <MESSAGE value="Create mouse and keyboard listeners for game" />
     <MESSAGE value="Add resource and create idle animation for main character" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add resource and create idle animation for main character" />
+    <MESSAGE value="Some refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some refactor" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
