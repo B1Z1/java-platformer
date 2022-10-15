@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="900c8441-7511-4cb8-bcdc-864e4785c1bb" name="Changes" comment="Create LevelManager and add width/height to Entity class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/levels/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/levels/LevelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/levels/LevelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/load/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/load/LoadSave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +97,7 @@
       <workItem from="1665824187621" duration="9545000" />
       <workItem from="1665839510493" duration="2376000" />
       <workItem from="1665850860826" duration="3000" />
+      <workItem from="1665851458269" duration="2879000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize project and create Main package">
       <created>1664914428274</created>

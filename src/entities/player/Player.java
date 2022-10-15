@@ -24,7 +24,6 @@ public class Player extends Entity {
     private boolean attacking = false;
     private PlayerAnimationType animationType = PlayerAnimationType.IDLE;
     private int animationTick, animationIndex;
-    private int xDelta, yDelta;
 
     public Player(
             float x,
@@ -39,6 +38,7 @@ public class Player extends Entity {
 
     public void update() {
         updatePosition();
+        updateHitBox();
         updateAnimationTick();
         setAnimationType();
     }
@@ -46,7 +46,8 @@ public class Player extends Entity {
     public void render(Graphics graphics) {
         BufferedImage image = animations[animationType.getValue()][animationIndex];
 
-        graphics.drawImage(image, xDelta, yDelta, width, height, null);
+        graphics.drawImage(image, (int) x, (int) y, width, height, null);
+        renderHitBox(graphics);
     }
 
     public void setDirection(Direction direction, boolean active) {
@@ -97,15 +98,15 @@ public class Player extends Entity {
 
     private void updatePosition() {
         if (isCurrentDirectionActive(Direction.LEFT) && !isCurrentDirectionActive(Direction.RIGHT)) {
-            xDelta -= moveSpeed;
+            x -= moveSpeed;
         } else if (isCurrentDirectionActive(Direction.RIGHT) && !isCurrentDirectionActive(Direction.LEFT)) {
-            xDelta += moveSpeed;
+            x += moveSpeed;
         }
 
         if (isCurrentDirectionActive(Direction.UP) && !isCurrentDirectionActive(Direction.DOWN)) {
-            yDelta -= moveSpeed;
+            y -= moveSpeed;
         } else if (isCurrentDirectionActive(Direction.DOWN) && !isCurrentDirectionActive(Direction.UP)) {
-            yDelta += moveSpeed;
+            y += moveSpeed;
         }
     }
 
