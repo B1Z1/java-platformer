@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="900c8441-7511-4cb8-bcdc-864e4785c1bb" name="Changes" comment="Create load textures function">
+    <list default="true" id="900c8441-7511-4cb8-bcdc-864e4785c1bb" name="Changes" comment="Create better size calculation for game">
+      <change afterPath="$PROJECT_DIR$/resources/outside_sprites.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/levels/Level.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/levels/LevelManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/load/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/load/LoadSave.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +99,7 @@
       <workItem from="1664996966479" duration="2320000" />
       <workItem from="1665088259590" duration="4296000" />
       <workItem from="1665776113263" duration="3295000" />
-      <workItem from="1665824187621" duration="7544000" />
+      <workItem from="1665824187621" duration="8178000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize project and create Main package">
       <created>1664914428274</created>
@@ -159,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665835826534</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Create better size calculation for game">
+      <created>1665836246272</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1665836246272</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,7 +198,8 @@
     <MESSAGE value="Refactor game loop. Add UPS" />
     <MESSAGE value="Create Player class. Add attack animation. Changes in move logic" />
     <MESSAGE value="Create load textures function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create load textures function" />
+    <MESSAGE value="Create better size calculation for game" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create better size calculation for game" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

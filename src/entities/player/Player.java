@@ -26,8 +26,13 @@ public class Player extends Entity {
     private int animationTick, animationIndex;
     private int xDelta, yDelta;
 
-    public Player(float x, float y) {
-        super(x, y);
+    public Player(
+            float x,
+            float y,
+            int width,
+            int height
+    ) {
+        super(x, y, width, height);
 
         loadAnimations();
     }
@@ -39,7 +44,9 @@ public class Player extends Entity {
     }
 
     public void render(Graphics graphics) {
-        graphics.drawImage(animations[animationType.getValue()][animationIndex], xDelta, yDelta, 256, 160, null);
+        BufferedImage image = animations[animationType.getValue()][animationIndex];
+
+        graphics.drawImage(image, xDelta, yDelta, width, height, null);
     }
 
     public void setDirection(Direction direction, boolean active) {

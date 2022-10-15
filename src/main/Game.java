@@ -1,6 +1,7 @@
 package main;
 
 import entities.player.Player;
+import levels.LevelManager;
 
 import java.awt.Graphics;
 
@@ -21,6 +22,7 @@ public class Game implements Runnable {
     private GamePanel gamePanel;
     private Thread gameThread;
     private Player player;
+    private LevelManager levelManager;
 
     public Game() {
         initClasses();
@@ -34,22 +36,30 @@ public class Game implements Runnable {
 
     public void render(Graphics graphics) {
         player.render(graphics);
-    }
-
-    private void update() {
-        player.update();
+        levelManager.render(graphics);
     }
 
     public Player getPlayer() {
         return player;
     }
 
-    public void windowFocusLost() {
-        player.resetDirections();
+    private void initClasses() {
+        player = new Player(
+                200,
+                200,
+                (int) (64 * TILES_DEFAULT_SCALE),
+                (int) (40 * TILES_DEFAULT_SCALE)
+        );
+        levelManager = new LevelManager(this);
     }
 
-    private void initClasses() {
-        player = new Player(200, 200);
+    private void update() {
+        player.update();
+        levelManager.update();
+    }
+
+    public void windowFocusLost() {
+        player.resetDirections();
     }
 
     private void startGameLoop() {
