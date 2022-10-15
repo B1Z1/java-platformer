@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="900c8441-7511-4cb8-bcdc-864e4785c1bb" name="Changes" comment="Create LevelManager and add width/height to Entity class">
+    <list default="true" id="900c8441-7511-4cb8-bcdc-864e4785c1bb" name="Changes" comment="Create HitBox for Entity">
+      <change afterPath="$PROJECT_DIR$/src/utils/collision/Collision.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/levels/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/levels/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/levels/LevelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/levels/LevelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +101,7 @@
       <workItem from="1665824187621" duration="9545000" />
       <workItem from="1665839510493" duration="2376000" />
       <workItem from="1665850860826" duration="3000" />
-      <workItem from="1665851458269" duration="2879000" />
+      <workItem from="1665851458269" duration="6218000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize project and create Main package">
       <created>1664914428274</created>
@@ -176,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665836908488</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Create HitBox for Entity">
+      <created>1665856215285</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1665856215285</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,7 +216,8 @@
     <MESSAGE value="Create load textures function" />
     <MESSAGE value="Create better size calculation for game" />
     <MESSAGE value="Create LevelManager and add width/height to Entity class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create LevelManager and add width/height to Entity class" />
+    <MESSAGE value="Create HitBox for Entity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create HitBox for Entity" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -2,6 +2,8 @@ package entities.player;
 
 import entities.entity.Entity;
 import entities.entity.EntityDimension;
+import main.Game;
+import utils.collision.Collision;
 import utils.direction.Direction;
 import utils.load.LoadSave;
 import utils.player.PlayerAnimation;
@@ -14,16 +16,21 @@ import java.util.HashMap;
 public class Player extends Entity {
     private final int moveSpeed = 2;
     private final int animationSpeed = 15;
-    private BufferedImage[][] animations;
-    private HashMap<Direction, Boolean> currentDirection = new HashMap<Direction, Boolean>() {{
+    private final HashMap<Direction, Boolean> currentDirection = new HashMap<Direction, Boolean>() {{
         put(Direction.UP, false);
         put(Direction.RIGHT, false);
         put(Direction.DOWN, false);
         put(Direction.LEFT, false);
     }};
+
+    private final float xDrawOffset = 21 * Game.TILES_DEFAULT_SCALE;
+    private final float yDrawOffset = 4 * Game.TILES_DEFAULT_SCALE;
+
+    private BufferedImage[][] animations;
     private boolean attacking = false;
     private PlayerAnimationType animationType = PlayerAnimationType.IDLE;
     private int animationTick, animationIndex;
+    private int[][] levelData;
 
     public Player(
             float x,
@@ -34,11 +41,11 @@ public class Player extends Entity {
         super(x, y, width, height);
 
         loadAnimations();
+        initHitBox(x, y, 20 * Game.TILES_DEFAULT_SCALE, 28 * Game.TILES_DEFAULT_SCALE);
     }
 
     public void update() {
         updatePosition();
-        updateHitBox();
         updateAnimationTick();
         setAnimationType();
     }
@@ -46,8 +53,15 @@ public class Player extends Entity {
     public void render(Graphics graphics) {
         BufferedImage image = animations[animationType.getValue()][animationIndex];
 
-        graphics.drawImage(image, (int) x, (int) y, width, height, null);
+        int xWithOffset = (int) (hitBox.x - xDrawOffset);
+        int yWithOffset = (int) (hitBox.y - yDrawOffset);
+
+        graphics.drawImage(image, xWithOffset, yWithOffset, width, height, null);
         renderHitBox(graphics);
+    }
+
+    public void loadLevelData(int[][] levelData) {
+        this.levelData = levelData;
     }
 
     public void setDirection(Direction direction, boolean active) {
@@ -97,16 +111,39 @@ public class Player extends Entity {
     }
 
     private void updatePosition() {
+        if (!isMoving()) {
+            return;
+        }
+
+        int xSpeed = 0, ySpeed = 0;
+
         if (isCurrentDirectionActive(Direction.LEFT) && !isCurrentDirectionActive(Direction.RIGHT)) {
-            x -= moveSpeed;
+            xSpeed -= moveSpeed;
         } else if (isCurrentDirectionActive(Direction.RIGHT) && !isCurrentDirectionActive(Direction.LEFT)) {
-            x += moveSpeed;
+            xSpeed += moveSpeed;
         }
 
         if (isCurrentDirectionActive(Direction.UP) && !isCurrentDirectionActive(Direction.DOWN)) {
-            y -= moveSpeed;
+            ySpeed -= moveSpeed;
         } else if (isCurrentDirectionActive(Direction.DOWN) && !isCurrentDirectionActive(Direction.UP)) {
-            y += moveSpeed;
+            ySpeed += moveSpeed;
+        }
+
+        float newX = hitBox.x + xSpeed;
+        float newY = hitBox.y + ySpeed;
+        boolean canMove = Collision.canMove(
+                newX,
+                newY,
+                hitBox.width,
+                hitBox.height,
+                levelData
+        );
+
+        if (canMove) {
+            x += xSpeed;
+            y += ySpeed;
+
+            updateHitBox();
         }
     }
 

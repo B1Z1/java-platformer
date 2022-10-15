@@ -51,6 +51,8 @@ public class Game implements Runnable {
                 (int) (40 * TILES_DEFAULT_SCALE)
         );
         levelManager = new LevelManager(this);
+
+        player.loadLevelData(levelManager.getCurrentLevel().getData());
     }
 
     private void update() {

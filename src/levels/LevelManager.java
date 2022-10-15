@@ -20,6 +20,10 @@ public class LevelManager {
         importSprites();
     }
 
+    public Level getCurrentLevel() {
+        return firstLevel;
+    }
+
     public void render(Graphics graphics) {
         for (int i = 0; i < Game.TILES_IN_HEIGHT; i++) {
             for (int j = 0; j < Game.TILES_IN_WIDTH; j++) {

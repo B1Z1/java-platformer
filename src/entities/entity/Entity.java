@@ -2,12 +2,12 @@ package entities.entity;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Rectangle;
+import java.awt.geom.Rectangle2D;
 
 public abstract class Entity {
     protected float x, y;
     protected int width, height;
-    protected Rectangle hitBox;
+    protected Rectangle2D.Float hitBox;
 
     public Entity(
             float x,
@@ -19,24 +19,22 @@ public abstract class Entity {
         this.y = y;
         this.width = width;
         this.height = height;
-
-        initHitBox();
     }
 
-    public Rectangle getHitBox() {
+    protected void initHitBox(float x, float y, float width, float height) {
+        hitBox = new Rectangle2D.Float(x, y, width, height);
+    }
+
+    public Rectangle2D.Float getHitBox() {
         return hitBox;
     }
 
     protected void updateHitBox() {
-        hitBox.setLocation((int) x, (int) y);
+        hitBox.setRect(x, y, hitBox.width, hitBox.height);
     }
 
     protected void renderHitBox(Graphics graphics) {
         graphics.setColor(Color.GREEN);
-        graphics.drawRect(hitBox.x, hitBox.y, hitBox.width, hitBox.height);
-    }
-
-    private void initHitBox() {
-        hitBox = new Rectangle((int) x, (int) y, width, height);
+        graphics.drawRect((int) hitBox.x, (int) hitBox.y, (int) hitBox.width, (int) hitBox.height);
     }
 }
