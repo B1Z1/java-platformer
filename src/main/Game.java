@@ -6,7 +6,7 @@ import levels.LevelManager;
 import java.awt.Graphics;
 
 public class Game implements Runnable {
-    public final static float TILES_DEFAULT_SCALE = 1.5f;
+    public final static float TILES_DEFAULT_SCALE = 2f;
     public final static int TILES_DEFAULT_SIZE = 32;
     public final static int TILES_IN_WIDTH = 26;
     public final static int TILES_IN_HEIGHT = 14;
@@ -35,8 +35,8 @@ public class Game implements Runnable {
     }
 
     public void render(Graphics graphics) {
-        player.render(graphics);
         levelManager.render(graphics);
+        player.render(graphics);
     }
 
     public Player getPlayer() {
