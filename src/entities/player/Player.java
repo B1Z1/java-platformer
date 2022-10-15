@@ -3,14 +3,12 @@ package entities.player;
 import entities.entity.Entity;
 import entities.entity.EntityDimension;
 import utils.direction.Direction;
+import utils.load.LoadSave;
 import utils.player.PlayerAnimation;
 import utils.player.PlayerAnimationType;
 
-import javax.imageio.ImageIO;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 
 public class Player extends Entity {
@@ -60,28 +58,16 @@ public class Player extends Entity {
     }
 
     private void loadAnimations() {
-        InputStream inputStream = getClass().getResourceAsStream("/player_sprites.png");
+        BufferedImage image = LoadSave.getSpriteAtlas(LoadSave.PLAYER_ATLAS);
 
-        try {
-            BufferedImage image = ImageIO.read(inputStream);
+        animations = new BufferedImage[9][6];
 
-            animations = new BufferedImage[9][6];
+        for (int i = 0; i < animations.length; i++) {
+            for (int j = 0; j < animations[i].length; j++) {
+                int width = (int) EntityDimension.ENTITY_DIMENSION.getWidth();
+                int height = (int) EntityDimension.ENTITY_DIMENSION.getHeight();
 
-            for (int i = 0; i < animations.length; i++) {
-                for (int j = 0; j < animations[i].length; j++) {
-                    int width = (int) EntityDimension.ENTITY_DIMENSION.getWidth();
-                    int height = (int) EntityDimension.ENTITY_DIMENSION.getHeight();
-
-                    animations[i][j] = image.getSubimage(j * width, i * height, width, height);
-                }
-            }
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        } finally {
-            try {
-                inputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+                animations[i][j] = image.getSubimage(j * width, i * height, width, height);
             }
         }
     }
