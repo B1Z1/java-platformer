@@ -42,6 +42,23 @@ public class GamePanel extends JPanel {
         addMouseMotionListener(mouseInputs);
     }
 
+    @Override
+    public void paintComponent(Graphics graphics) {
+        super.paintComponent(graphics);
+
+        graphics.drawImage(animations[playerAnimationType.getValue()][animationIndex], xDelta, yDelta, 256, 160, null);
+    }
+
+    public void updateGame() {
+        updateAnimationTick();
+        setAnimationType();
+        updatePosition();
+    }
+
+    public void setPlayerDirection(Direction direction) {
+        playerDirection = direction;
+    }
+
     private void importImage() {
         InputStream inputStream = getClass().getResourceAsStream("/player_sprites.png");
 
@@ -49,6 +66,12 @@ public class GamePanel extends JPanel {
             image = ImageIO.read(inputStream);
         } catch (IOException exception) {
             exception.printStackTrace();
+        } finally {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -69,8 +92,17 @@ public class GamePanel extends JPanel {
         setPreferredSize(dimension);
     }
 
-    public void setPlayerDirection(Direction direction) {
-        playerDirection = direction;
+    private void updateAnimationTick() {
+        animationTick++;
+
+        if (animationTick >= animationSpeed) {
+            int spriteMaxCount = PlayerAnimation.getSpriteAnimationCount(playerAnimationType);
+            int spriteMaxIndex = spriteMaxCount - 1;
+
+            animationTick = 0;
+
+            animationIndex = animationIndex >= spriteMaxIndex ? 0 : animationIndex + 1;
+        }
     }
 
     private void setAnimationType() {
@@ -91,30 +123,6 @@ public class GamePanel extends JPanel {
             case RIGHT -> xDelta += 5;
             case DOWN -> yDelta += 5;
             case LEFT -> xDelta -= 5;
-        }
-    }
-
-    @Override
-    public void paintComponent(Graphics graphics) {
-        super.paintComponent(graphics);
-
-        updateAnimationTick();
-        setAnimationType();
-        updatePosition();
-
-        graphics.drawImage(animations[playerAnimationType.getValue()][animationIndex], xDelta, yDelta, 256, 160, null);
-    }
-
-    private void updateAnimationTick() {
-        animationTick++;
-
-        if (animationTick >= animationSpeed) {
-            int spriteMaxCount = PlayerAnimation.getSpriteAnimationCount(playerAnimationType);
-            int spriteMaxIndex = spriteMaxCount - 1;
-
-            animationTick = 0;
-
-            animationIndex = animationIndex >= spriteMaxIndex ? 0 : animationIndex + 1;
         }
     }
 }
