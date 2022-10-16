@@ -46,7 +46,7 @@ public class Player extends Entity {
         super(x, y, width, height);
 
         loadAnimations();
-        initHitBox(x, y, 20 * Game.TILES_DEFAULT_SCALE, 28 * Game.TILES_DEFAULT_SCALE);
+        initHitBox(x, y, 20 * Game.TILES_DEFAULT_SCALE, 27 * Game.TILES_DEFAULT_SCALE);
     }
 
     public void update() {
@@ -67,6 +67,10 @@ public class Player extends Entity {
 
     public void loadLevelData(int[][] levelData) {
         this.levelData = levelData;
+
+        if (!Collision.isEntityOnFloor(hitBox, levelData)) {
+            inAir = true;
+        }
     }
 
     public void setDirection(Direction direction, boolean active) {
