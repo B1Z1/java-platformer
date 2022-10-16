@@ -17,9 +17,7 @@ public class Player extends Entity {
     private final int moveSpeed = 2;
     private final int animationSpeed = 15;
     private final HashMap<Direction, Boolean> currentDirection = new HashMap<Direction, Boolean>() {{
-        put(Direction.UP, false);
         put(Direction.RIGHT, false);
-        put(Direction.DOWN, false);
         put(Direction.LEFT, false);
     }};
 
@@ -31,6 +29,13 @@ public class Player extends Entity {
     private PlayerAnimationType animationType = PlayerAnimationType.IDLE;
     private int animationTick, animationIndex;
     private int[][] levelData;
+
+    private float airSpeed = 0f;
+    private float gravity = 0.04f * Game.TILES_DEFAULT_SCALE;
+    private float jumpSpeed = -2.25f * Game.TILES_DEFAULT_SCALE;
+    private float fallSpeedAfterCollision = 0.5f * Game.TILES_DEFAULT_SCALE;
+    private boolean inAir = false;
+    private boolean jump = false;
 
     public Player(
             float x,
@@ -68,10 +73,12 @@ public class Player extends Entity {
         this.currentDirection.put(direction, active);
     }
 
+    public void setJump(boolean jump) {
+        this.jump = jump;
+    }
+
     public void resetDirections() {
-        this.currentDirection.put(Direction.UP, false);
         this.currentDirection.put(Direction.RIGHT, false);
-        this.currentDirection.put(Direction.DOWN, false);
         this.currentDirection.put(Direction.LEFT, false);
     }
 
@@ -111,40 +118,74 @@ public class Player extends Entity {
     }
 
     private void updatePosition() {
-        if (!isMoving()) {
+        if (jump) {
+            resolveJump();
+        }
+
+        if (!isMoving() && !inAir) {
             return;
         }
 
-        int xSpeed = 0, ySpeed = 0;
+        int xSpeed = 0;
 
-        if (isCurrentDirectionActive(Direction.LEFT) && !isCurrentDirectionActive(Direction.RIGHT)) {
+        if (isCurrentDirectionActive(Direction.LEFT)) {
             xSpeed -= moveSpeed;
-        } else if (isCurrentDirectionActive(Direction.RIGHT) && !isCurrentDirectionActive(Direction.LEFT)) {
+        }
+
+        if (isCurrentDirectionActive(Direction.RIGHT)) {
             xSpeed += moveSpeed;
         }
 
-        if (isCurrentDirectionActive(Direction.UP) && !isCurrentDirectionActive(Direction.DOWN)) {
-            ySpeed -= moveSpeed;
-        } else if (isCurrentDirectionActive(Direction.DOWN) && !isCurrentDirectionActive(Direction.UP)) {
-            ySpeed += moveSpeed;
+        if (!inAir && !Collision.isEntityOnFloor(hitBox, levelData)) {
+            inAir = true;
         }
 
-        float newX = hitBox.x + xSpeed;
-        float newY = hitBox.y + ySpeed;
+        updateXPos(xSpeed);
+
+        if (!inAir) {
+            return;
+        }
+
+        if (Collision.canMove(hitBox.x, hitBox.y + airSpeed, hitBox.width, hitBox.height, levelData)) {
+            hitBox.y += airSpeed;
+            airSpeed += gravity;
+        } else {
+            hitBox.y = Collision.getEntityYPositionUnderRoofOrAboveFloor(hitBox, airSpeed);
+
+            if (airSpeed > 0) {
+                resetInAir();
+            } else {
+                airSpeed = fallSpeedAfterCollision;
+            }
+        }
+    }
+
+    private void resolveJump() {
+        if (inAir) {
+            return;
+        }
+
+        inAir = true;
+        airSpeed = jumpSpeed;
+    }
+
+    private void resetInAir() {
+        inAir = false;
+        airSpeed = 0;
+    }
+
+    private void updateXPos(int xSpeed) {
         boolean canMove = Collision.canMove(
-                newX,
-                newY,
+                hitBox.x + xSpeed,
+                hitBox.y,
                 hitBox.width,
                 hitBox.height,
                 levelData
         );
 
-        if (canMove) {
-            x += xSpeed;
-            y += ySpeed;
-
-            updateHitBox();
-        }
+        hitBox.x = canMove
+                ? hitBox.x + xSpeed
+                : Collision.getEntityXPositionNextToWall(hitBox, xSpeed);
     }
 
     private void updateAnimationTick() {
@@ -172,7 +213,7 @@ public class Player extends Entity {
     }
 
     private boolean isMoving() {
-        return isCurrentDirectionActive(Direction.UP) || isCurrentDirectionActive(Direction.RIGHT) || isCurrentDirectionActive(Direction.DOWN) || isCurrentDirectionActive(Direction.LEFT);
+        return isCurrentDirectionActive(Direction.RIGHT) || isCurrentDirectionActive(Direction.LEFT);
     }
 
     private boolean isCurrentDirectionActive(Direction direction) {
