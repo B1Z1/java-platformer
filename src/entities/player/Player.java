@@ -104,7 +104,11 @@ public class Player extends Entity {
     private void setAnimationType() {
         PlayerAnimationType previousAnimationType = animationType;
 
-        if (attacking) {
+        if (inAir) {
+            animationType = airSpeed < 0
+                    ? PlayerAnimationType.JUMPING
+                    : PlayerAnimationType.FALLING;
+        } else if (attacking) {
             animationType = PlayerAnimationType.ATTACK_1;
         } else if (isMoving()) {
             animationType = PlayerAnimationType.RUNNING;

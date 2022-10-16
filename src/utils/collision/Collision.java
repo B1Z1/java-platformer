@@ -39,8 +39,8 @@ public class Collision {
     }
 
     public static boolean isEntityOnFloor(Rectangle2D.Float hitBox, int[][] levelData) {
-        return !isSolid(hitBox.x, hitBox.y + hitBox.height + 1, levelData)
-                && !isSolid(hitBox.x + hitBox.width, hitBox.y + hitBox.height + 1, levelData);
+        return isSolid(hitBox.x, hitBox.y + hitBox.height + 1, levelData)
+                && isSolid(hitBox.x + hitBox.width, hitBox.y + hitBox.height + 1, levelData);
     }
 
     private static boolean isSolid(float x, float y, int[][] levelData) {
