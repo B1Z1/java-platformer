@@ -1,7 +1,8 @@
 package main;
 
-import entities.player.Player;
-import levels.LevelManager;
+import game.states.GameState;
+import game.states.MenuState;
+import game.states.PlayingState;
 
 import java.awt.Graphics;
 
@@ -21,8 +22,9 @@ public class Game implements Runnable {
     private GameWindow gameWindow;
     private GamePanel gamePanel;
     private Thread gameThread;
-    private Player player;
-    private LevelManager levelManager;
+
+    private PlayingState playingState;
+    private MenuState menuState;
 
     public Game() {
         initClasses();
@@ -32,41 +34,6 @@ public class Game implements Runnable {
         gamePanel.requestFocus();
 
         startGameLoop();
-    }
-
-    public void render(Graphics graphics) {
-        levelManager.render(graphics);
-        player.render(graphics);
-    }
-
-    public Player getPlayer() {
-        return player;
-    }
-
-    private void initClasses() {
-        player = new Player(
-                200,
-                200,
-                (int) (64 * TILES_DEFAULT_SCALE),
-                (int) (40 * TILES_DEFAULT_SCALE)
-        );
-        levelManager = new LevelManager(this);
-
-        player.loadLevelData(levelManager.getCurrentLevel().getData());
-    }
-
-    private void update() {
-        player.update();
-        levelManager.update();
-    }
-
-    public void windowFocusLost() {
-        player.resetDirections();
-    }
-
-    private void startGameLoop() {
-        gameThread = new Thread(this);
-        gameThread.start();
     }
 
     @Override
@@ -109,5 +76,51 @@ public class Game implements Runnable {
                 updates = 0;
             }
         }
+    }
+
+    public void render(Graphics graphics) {
+        switch (GameState.state) {
+            case MENU -> {
+                menuState.render(graphics);
+            }
+            case PLAYING -> {
+                playingState.render(graphics);
+            }
+        }
+    }
+
+    public MenuState getMenuState() {
+        return menuState;
+    }
+
+    public PlayingState getPlayingState() {
+        return playingState;
+    }
+
+    public void windowFocusLost() {
+        if (GameState.state == GameState.PLAYING) {
+            playingState.getPlayer().resetDirections();
+        }
+    }
+
+    private void initClasses() {
+        menuState = new MenuState(this);
+        playingState = new PlayingState(this);
+    }
+
+    private void update() {
+        switch (GameState.state) {
+            case MENU -> {
+                menuState.update();
+            }
+            case PLAYING -> {
+                playingState.update();
+            }
+        }
+    }
+
+    private void startGameLoop() {
+        gameThread = new Thread(this);
+        gameThread.start();
     }
 }
