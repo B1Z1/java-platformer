@@ -3,6 +3,7 @@ package game.states;
 import entities.player.Player;
 import levels.LevelManager;
 import main.Game;
+import ui.overlay.PauseOverlay;
 import utils.direction.Direction;
 
 import java.awt.Graphics;
@@ -11,7 +12,9 @@ import java.awt.event.MouseEvent;
 
 public class PlayingState extends State {
     private Player player;
+    private PauseOverlay pauseOverlay;
     private LevelManager levelManager;
+    private boolean paused = false;
 
     public PlayingState(Game game) {
         super(game);
@@ -23,12 +26,14 @@ public class PlayingState extends State {
     public void update() {
         levelManager.update();
         player.update();
+        pauseOverlay.update();
     }
 
     @Override
     public void render(Graphics graphics) {
         levelManager.render(graphics);
         player.render(graphics);
+        pauseOverlay.render(graphics);
     }
 
     @Override
@@ -122,6 +127,7 @@ public class PlayingState extends State {
                 (int) (40 * Game.TILES_DEFAULT_SCALE)
         );
         levelManager = new LevelManager(game);
+        pauseOverlay = new PauseOverlay();
 
         player.loadLevelData(levelManager.getCurrentLevel().getData());
     }
