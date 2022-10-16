@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="900c8441-7511-4cb8-bcdc-864e4785c1bb" name="Changes" comment="Add animation for jump and fall actions">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/player/Player.java" afterDir="false" />
+    <list default="true" id="900c8441-7511-4cb8-bcdc-864e4785c1bb" name="Changes" comment="Fix texture difference between floor and texture">
+      <change beforePath="$PROJECT_DIR$/src/entities/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/player/PlayerAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/player/PlayerAnimation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +97,7 @@
       <workItem from="1665839510493" duration="2376000" />
       <workItem from="1665850860826" duration="3000" />
       <workItem from="1665851458269" duration="10306000" />
-      <workItem from="1665915200548" duration="1553000" />
+      <workItem from="1665915200548" duration="2001000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize project and create Main package">
       <created>1664914428274</created>
@@ -204,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665917794390</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Fix texture difference between floor and texture">
+      <created>1665918148019</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1665918148019</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +244,8 @@
     <MESSAGE value="Create Collision Detection" />
     <MESSAGE value="Create gravitation physics" />
     <MESSAGE value="Add animation for jump and fall actions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add animation for jump and fall actions" />
+    <MESSAGE value="Fix texture difference between floor and texture" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix texture difference between floor and texture" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

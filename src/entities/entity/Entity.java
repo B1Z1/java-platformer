@@ -25,9 +25,6 @@ public abstract class Entity {
         hitBox = new Rectangle2D.Float(x, y, width, height);
     }
 
-    protected void updateHitBox() {
-        hitBox.setRect(x, y, hitBox.width, hitBox.height);
-    }
 
     protected void renderHitBox(Graphics graphics) {
         graphics.setColor(Color.GREEN);
