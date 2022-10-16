@@ -2,18 +2,23 @@ package game.states;
 
 import main.Game;
 import ui.button.MenuButton;
+import utils.load.LoadSave;
 
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 
 public class MenuState extends State {
     private MenuButton[] buttons = new MenuButton[3];
+    private BufferedImage backgroundImage;
+    private int backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
 
     public MenuState(Game game) {
         super(game);
 
         initButtons();
+        initBackground();
     }
 
     @Override
@@ -25,6 +30,8 @@ public class MenuState extends State {
 
     @Override
     public void render(Graphics graphics) {
+        graphics.drawImage(backgroundImage, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight, null);
+
         for (MenuButton button : buttons) {
             button.render(graphics);
         }
@@ -113,5 +120,13 @@ public class MenuState extends State {
         for (MenuButton button : buttons) {
             button.resetMouseStates();
         }
+    }
+
+    private void initBackground() {
+        backgroundImage = LoadSave.getSpriteAtlas(LoadSave.MENU_BACKGROUND);
+        backgroundImageWidth = (int) (backgroundImage.getWidth() * Game.TILES_DEFAULT_SCALE);
+        backgroundImageHeight = (int) (backgroundImage.getHeight() * Game.TILES_DEFAULT_SCALE);
+        backgroundImageX = Game.GAME_WIDTH / 2 - backgroundImageWidth / 2;
+        backgroundImageY = (int) (45 * Game.TILES_DEFAULT_SCALE);
     }
 }

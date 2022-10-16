@@ -14,7 +14,7 @@ import java.awt.image.BufferedImage;
 import java.util.HashMap;
 
 public class Player extends Entity {
-    private final int moveSpeed = 2;
+    private final float moveSpeed = 1.5f * Game.TILES_DEFAULT_SCALE;
     private final int animationSpeed = 15;
     private final HashMap<Direction, Boolean> currentDirection = new HashMap<Direction, Boolean>() {{
         put(Direction.RIGHT, false);
@@ -46,7 +46,7 @@ public class Player extends Entity {
         super(x, y, width, height);
 
         loadAnimations();
-        initHitBox(x, y, 20 * Game.TILES_DEFAULT_SCALE, 27 * Game.TILES_DEFAULT_SCALE);
+        initHitBox(x, y, (int) (20 * Game.TILES_DEFAULT_SCALE), (int) (27 * Game.TILES_DEFAULT_SCALE));
     }
 
     public void update() {
