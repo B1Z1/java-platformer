@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="900c8441-7511-4cb8-bcdc-864e4785c1bb" name="Changes" comment="Refactor">
-      <change afterPath="$PROJECT_DIR$/src/game/states/GameState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/states/MenuState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/states/PlayingState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/states/State.java" afterDir="false" />
+    <list default="true" id="900c8441-7511-4cb8-bcdc-864e4785c1bb" name="Changes" comment="Create Game states for Menu and Playing">
+      <change afterPath="$PROJECT_DIR$/resources/button_atlas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/button/MenuButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/inputs/KeyboardInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/KeyboardInputs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/states/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/states/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/states/MenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/states/MenuState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/states/PlayingState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/states/PlayingState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/states/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/states/State.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/inputs/MouseInputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/MouseInputs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/load/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/load/LoadSave.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +21,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -63,6 +65,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\projects\java\platformer\resources" />
       <recent name="D:\projects\java\platformer" />
       <recent name="D:\projects\java\platformer\src\main" />
       <recent name="D:\projects\java\platformer\src" />
@@ -104,7 +107,7 @@
       <workItem from="1665839510493" duration="2376000" />
       <workItem from="1665850860826" duration="3000" />
       <workItem from="1665851458269" duration="10306000" />
-      <workItem from="1665915200548" duration="4926000" />
+      <workItem from="1665915200548" duration="8440000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize project and create Main package">
       <created>1664914428274</created>
@@ -225,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665918461199</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Create Game states for Menu and Playing">
+      <created>1665922525986</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1665922525986</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +270,8 @@
     <MESSAGE value="Add animation for jump and fall actions" />
     <MESSAGE value="Fix texture difference between floor and texture" />
     <MESSAGE value="Refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor" />
+    <MESSAGE value="Create Game states for Menu and Playing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create Game states for Menu and Playing" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

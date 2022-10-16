@@ -86,6 +86,7 @@ public class Game implements Runnable {
             case PLAYING -> {
                 playingState.render(graphics);
             }
+            case OPTIONS, QUIT -> System.exit(0);
         }
     }
 

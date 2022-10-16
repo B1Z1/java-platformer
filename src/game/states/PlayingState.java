@@ -39,7 +39,8 @@ public class PlayingState extends State {
     @Override
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
-            case KeyEvent.VK_W -> {
+            case KeyEvent.VK_W, KeyEvent.VK_SPACE -> {
+                player.setJump(true);
             }
             case KeyEvent.VK_A -> {
                 player.setDirection(Direction.LEFT, true);
@@ -49,10 +50,7 @@ public class PlayingState extends State {
             case KeyEvent.VK_D -> {
                 player.setDirection(Direction.RIGHT, true);
             }
-            case KeyEvent.VK_SPACE -> {
-                player.setJump(true);
-            }
-            case KeyEvent.VK_BACK_SPACE -> {
+            case KeyEvent.VK_ESCAPE -> {
                 GameState.state = GameState.MENU;
             }
         }
@@ -61,7 +59,8 @@ public class PlayingState extends State {
     @Override
     public void keyReleased(KeyEvent e) {
         switch (e.getKeyCode()) {
-            case KeyEvent.VK_W -> {
+            case KeyEvent.VK_W, KeyEvent.VK_SPACE -> {
+                player.setJump(false);
             }
             case KeyEvent.VK_A -> {
                 player.setDirection(Direction.LEFT, false);
@@ -70,9 +69,6 @@ public class PlayingState extends State {
             }
             case KeyEvent.VK_D -> {
                 player.setDirection(Direction.RIGHT, false);
-            }
-            case KeyEvent.VK_SPACE -> {
-                player.setJump(false);
             }
         }
     }
