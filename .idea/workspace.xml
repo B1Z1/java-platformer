@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="900c8441-7511-4cb8-bcdc-864e4785c1bb" name="Changes" comment="Add background to our menu">
-      <change afterPath="$PROJECT_DIR$/resources/pause_menu_background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sound_button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/urm_buttons.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/volume_buttons.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/button/PauseButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/button/SoundButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/overlay/PauseOverlay.java" afterDir="false" />
+    <list default="true" id="900c8441-7511-4cb8-bcdc-864e4785c1bb" name="Changes" comment="Create menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/states/PlayingState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/states/PlayingState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/load/LoadSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/load/LoadSave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/button/SoundButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/button/SoundButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/overlay/PauseOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/overlay/PauseOverlay.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +100,9 @@
       <workItem from="1665839510493" duration="2376000" />
       <workItem from="1665850860826" duration="3000" />
       <workItem from="1665851458269" duration="10306000" />
-      <workItem from="1665915200548" duration="13307000" />
+      <workItem from="1665915200548" duration="13386000" />
+      <workItem from="1666519060600" duration="833000" />
+      <workItem from="1666520261163" duration="1417000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize project and create Main package">
       <created>1664914428274</created>
@@ -249,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665935480113</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Create pause buttons">
+      <created>1665940355316</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1665940355316</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,7 +289,9 @@
     <MESSAGE value="Create Game states for Menu and Playing" />
     <MESSAGE value="Create menu with buttons and add logic to these buttons" />
     <MESSAGE value="Add background to our menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add background to our menu" />
+    <MESSAGE value="Create pause buttons" />
+    <MESSAGE value="Create menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create menu" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

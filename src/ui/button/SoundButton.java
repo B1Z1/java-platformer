@@ -7,6 +7,8 @@ import java.awt.image.BufferedImage;
 
 public class SoundButton extends PauseButton {
     private BufferedImage[][] images;
+    private boolean isMouseOver, isMousePressed;
+    private boolean muted;
 
     public SoundButton(int x, int y, int width, int height) {
         super(x, y, width, height);

@@ -53,8 +53,8 @@ public class PauseOverlay {
 
     private void initSoundButtons() {
         int soundX = (int) (450 * Game.TILES_DEFAULT_SCALE);
-        int musicY = (int) (140 * Game.TILES_DEFAULT_SCALE);
-        int sfxY = (int) (186 * Game.TILES_DEFAULT_SCALE);
+        int musicY = (int) (145 * Game.TILES_DEFAULT_SCALE);
+        int sfxY = (int) (190 * Game.TILES_DEFAULT_SCALE);
 
         musicButton = new SoundButton(soundX, musicY, PauseButton.SIZE, PauseButton.SIZE);
         sfxButton = new SoundButton(soundX, sfxY, PauseButton.SIZE, PauseButton.SIZE);
